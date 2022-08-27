@@ -1,5 +1,6 @@
-import React from 'react'
+import {useState, React} from 'react'
 import './RightSide.css'
+import ShareModal from '../ShareModal/ShareModal'
 import Home from '../../img/home.png'
 import Noti from '../../img/noti.png'
 import Comment from '../../img/comment.png'
@@ -7,6 +8,8 @@ import {UilSetting} from '@iconscout/react-unicons'
 import TrendCard from '../TrendCard/TrendCard'
 
 const RightSide = () => {
+
+  const [modalOpened, setModalOpened] = useState(false);
   return (
     <div className="RightSide">
         <div className="NavIcons">
@@ -17,7 +20,8 @@ const RightSide = () => {
         </div>
 
         <TrendCard />
-        <button className="Button s-button">Share</button>
+        <button className="Button s-button" onClick={()=>{setModalOpened(true);}}>Share</button>
+        <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened}/>
     </div>
   )
 }
